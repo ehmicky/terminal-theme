@@ -60,10 +60,10 @@ _Return value_: `Promise<object>`
 
 ### defaulTheme
 
-The `defaultTheme` is an object where:
+The `defaultTheme` argument is an object where:
 
 - Each key is a category that should have consistent styling. Examples include
-  `error`, `success`, `link`, `header` or anything else.
+  `error`, `success`, `link`, `header`, etc.
 - Each value is a string that is a space-separated list of styles. Some styles
   require dash-separated arguments.
 
@@ -110,12 +110,20 @@ bgMagentaBright bgCyanBright bgWhiteBright bgGrayBright
 bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
 ```
 
+Users can override the `defaultTheme` by creating a `terminal-theme.yml` in the
+current or any parent directory.
+
+```yml
+error: yellow bold
+success: cyan
+```
+
 ### Return value
 
-The return value is an object where:
+The return value is a promise resolving to an object where:
 
 - Each key is a category defined in the theme.
-- Each value is a function that applies styling to a string.
+- Each value is a function applying styles to a string.
 
 ```js
 const exampleLibrary = async function () {
