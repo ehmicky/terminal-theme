@@ -62,8 +62,8 @@ _Return value_: `Promise<object>`
 
 The `defaultTheme` argument is an object where each:
 
-- Key is a category that should have consistent styling. Examples include
-  `error`, `success`, `link`, `header`, etc.
+- Key is a category with consistent styles. Examples include `error`, `success`,
+  `link`, `header`, etc.
 - Value is a string that is a space-separated list of [styles](#styles).
   [Some styles](#styles) require dash-separated arguments.
 
@@ -127,7 +127,7 @@ Current directory. Used when looking for `terminal-theme.yml`.
 The full list of styles is:
 
 ```sh
-# Standard styling
+# Standard styles
 bold underline inverse reset
 
 # Those styles do not always work on Windows
