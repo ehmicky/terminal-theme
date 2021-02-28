@@ -45,6 +45,18 @@ error: yellow bold
 success: cyan
 ```
 
+Or programmatically:
+
+```js
+const exampleLibrary = async function (userTheme) {
+  const { error, success, title, subtitle } = await terminalTheme({
+    ...defaultTheme,
+    ...userTheme,
+  })
+  console.log(success('example'))
+}
+```
+
 # Install
 
 ```
