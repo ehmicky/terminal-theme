@@ -1,3 +1,4 @@
+import { modifier, color } from 'ansi-styles'
 import test from 'ava'
 import hasAnsi from 'has-ansi'
 import { each } from 'test-each'
@@ -78,4 +79,13 @@ test('Can apply any styles | visible', async (t) => {
     { colors: false },
   )
   t.is(category('test'), '')
+})
+
+test('Can apply multiple styles', async (t) => {
+  const { category } = await terminalTheme(
+    { category: 'red bold' },
+    { colors: true },
+  )
+  t.true(category('test').includes(color.red.open))
+  t.true(category('test').includes(modifier.bold.open))
 })

@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^0.31.87",
+    "ansi-styles": "^5.1.0",
     "has-ansi": "^4.0.1",
     "test-each": "^2.0.1"
   },
