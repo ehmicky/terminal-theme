@@ -15,6 +15,11 @@ test('Use user theme', async (t) => {
   t.true(hasStyle(category, 'blue'))
 })
 
+test('Find user theme in parent directories', async (t) => {
+  const category = await getCategory({}, { fixture: 'parent/child' })
+  t.true(hasStyle(category, 'blue'))
+})
+
 test('Shallow merge user theme', async (t) => {
   const { otherCategory } = await getCategories(
     { otherCategory: 'red' },
