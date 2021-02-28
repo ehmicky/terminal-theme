@@ -4,7 +4,7 @@ import { getOpts } from './options.js'
 import { getThemer } from './themer.js'
 import { applyUserTheme } from './user_theme.js'
 
-// Thin wrapper around `chalk which adds support for color theming.
+// Thin wrapper around `chalk` which adds support for color theming.
 const colorsTheme = async function (defaultTheme, opts) {
   const { colorsOptionOpts, cwd } = getOpts(defaultTheme, opts)
   const chalk = colorsOption(colorsOptionOpts)
