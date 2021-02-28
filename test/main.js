@@ -14,7 +14,6 @@ each(
     'italic',
     'hidden',
     'strikethrough',
-    // 'visible',
     'black',
     'red',
     'green',
@@ -72,3 +71,11 @@ each(
     })
   },
 )
+
+test('Can apply any styles | visible', async (t) => {
+  const { category } = await terminalTheme(
+    { category: 'visible' },
+    { colors: false },
+  )
+  t.is(category('test'), '')
+})
