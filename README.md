@@ -10,8 +10,8 @@ Use a color theme for your library's terminal output.
 A color theme enforces styling consistency and simplifies updating it.
 
 You specify the default theme, including the [colors](#styles) and the
-categories associated to those. Users can optionally override it with a
-`terminal-theme.yml` in their repository.
+categories associated to those. Users [can optionally override it](#user-theme)
+with a `terminal-theme.yml` in their repository.
 
 This uses the popular [`chalk`](https://github.com/chalk/chalk) colors library
 under the hood, so this includes
@@ -36,8 +36,10 @@ const exampleLibrary = async function () {
 }
 ```
 
-Users can override it using a `terminal-theme.yml` in the current or any parent
-directory:
+## User theme
+
+Users can override the `defaultTheme` by creating a `terminal-theme.yml` in the
+current or any parent directory.
 
 ```yml
 error: yellow bold
@@ -121,16 +123,6 @@ _Type_: `string`\
 _Default_: `process.cwd()`
 
 Current directory. Used when looking for `terminal-theme.yml`.
-
-## User theme
-
-Users can override the `defaultTheme` by creating a `terminal-theme.yml` in the
-current or any parent directory.
-
-```yml
-error: yellow bold
-success: cyan
-```
 
 ## Styles
 
