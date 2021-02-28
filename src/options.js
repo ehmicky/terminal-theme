@@ -1,4 +1,4 @@
-import { stdout } from 'process'
+import { stdout, cwd as getCwd } from 'process'
 
 import filterObj from 'filter-obj'
 import isPlainObj from 'is-plain-obj'
@@ -8,8 +8,8 @@ import { validate } from 'jest-validate'
 export const getOpts = function (defaultTheme, opts = {}) {
   validateOpts(defaultTheme, opts)
   const optsA = filterObj(opts, isDefined)
-  const colorsOptionOpts = { ...DEFAULT_OPTS, ...optsA }
-  return { colorsOptionOpts }
+  const { cwd, ...colorsOptionOpts } = { ...getDefaultOpts(), ...optsA }
+  return { colorsOptionOpts, cwd }
 }
 
 const validateOpts = function (defaultTheme, opts) {
@@ -34,10 +34,16 @@ const isDefined = function (key, value) {
   return value !== undefined
 }
 
+const getDefaultOpts = function () {
+  const cwd = getCwd()
+  return { ...DEFAULT_OPTS, cwd }
+}
+
 const DEFAULT_OPTS = {}
 
 const EXAMPLE_OPTS = {
   ...DEFAULT_OPTS,
-  stream: stdout,
   colors: true,
+  stream: stdout,
+  cwd: '/path',
 }
