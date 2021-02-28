@@ -1,5 +1,5 @@
 {
-  "name": "colors-theme",
+  "name": "terminal-theme",
   "version": "1.0.0",
   "main": "build/src/main.js",
   "files": [
@@ -39,9 +39,9 @@
   ],
   "license": "Apache-2.0",
   "homepage": "https://git.io/JtjXA",
-  "repository": "ehmicky/colors-theme",
+  "repository": "ehmicky/terminal-theme",
   "bugs": {
-    "url": "https://github.com/ehmicky/colors-theme/issues"
+    "url": "https://github.com/ehmicky/terminal-theme/issues"
   },
   "author": "ehmicky <ehmicky@gmail.com> (https://github.com/ehmicky)",
   "directories": {

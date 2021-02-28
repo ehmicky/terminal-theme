@@ -1,7 +1,7 @@
-[![Codecov](https://img.shields.io/codecov/c/github/ehmicky/colors-theme.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/colors-theme)
-[![Build](https://github.com/ehmicky/colors-theme/workflows/Build/badge.svg)](https://github.com/ehmicky/colors-theme/actions)
-[![Node](https://img.shields.io/node/v/colors-theme.svg?logo=node.js)](https://www.npmjs.com/package/colors-theme)
-[![Gitter](https://img.shields.io/gitter/room/ehmicky/colors-theme.svg?logo=gitter)](https://gitter.im/ehmicky/colors-theme)
+[![Codecov](https://img.shields.io/codecov/c/github/ehmicky/terminal-theme.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/terminal-theme)
+[![Build](https://github.com/ehmicky/terminal-theme/workflows/Build/badge.svg)](https://github.com/ehmicky/terminal-theme/actions)
+[![Node](https://img.shields.io/node/v/terminal-theme.svg?logo=node.js)](https://www.npmjs.com/package/terminal-theme)
+[![Gitter](https://img.shields.io/gitter/room/ehmicky/terminal-theme.svg?logo=gitter)](https://gitter.im/ehmicky/terminal-theme)
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-4cc61e.svg?logo=medium)](https://medium.com/@ehmicky)
 
@@ -12,7 +12,7 @@ TODO
 # Example
 
 ```js
-const colorsTheme = require('colors-theme')
+const terminalTheme = require('terminal-theme')
 
 const defaultTheme = {
   error: 'red bold',
@@ -21,13 +21,13 @@ const defaultTheme = {
 }
 
 const exampleLibrary = async function ({ theme }) {
-  const { error, warning, success } = await colorsTheme(defaultTheme)
+  const { error, warning, success } = await terminalTheme(defaultTheme)
   // Print in green color
   console.log(success('example'))
 }
 ```
 
-Users can override themes using a `colors-theme.yml` in the current or any
+Users can override themes using a `terminal-theme.yml` in the current or any
 parent directory:
 
 ```yml
@@ -38,12 +38,12 @@ success: cyan
 # Install
 
 ```
-npm install colors-theme
+npm install terminal-theme
 ```
 
 # API
 
-## colorsTheme(defaultTheme, options?)
+## terminalTheme(defaultTheme, options?)
 
 `defaultTheme`: `object`\
 `options`: `object`\
@@ -78,7 +78,7 @@ the colors are output.
 _Type_: `string`\
 _Default_: `process.cwd()`
 
-Current directory. Used when looking for `colors-theme.yml`.
+Current directory. Used when looking for `terminal-theme.yml`.
 
 # Support
 
@@ -86,7 +86,7 @@ If you found a bug or would like a new feature, _don't hesitate_ to
 [submit an issue on GitHub](../../issues).
 
 For other questions, feel free to
-[chat with us on Gitter](https://gitter.im/ehmicky/colors-option).
+[chat with us on Gitter](https://gitter.im/ehmicky/terminal-theme).
 
 Everyone is welcome regardless of personal background. We enforce a
 [Code of conduct](CODE_OF_CONDUCT.md) in order to promote a positive and
@@ -111,7 +111,7 @@ If you would like to help us fix a bug or add a new feature, please check our
 <!--
 <table>
   <tr>
-    <td align="center"><a href="https://twitter.com/ehmicky"><img src="https://avatars2.githubusercontent.com/u/8136211?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ehmicky</b></sub></a><br /><a href="https://github.com/ehmicky/colors-option/commits?author=ehmicky" title="Code">💻</a> <a href="#design-ehmicky" title="Design">🎨</a> <a href="#ideas-ehmicky" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/ehmicky/colors-option/commits?author=ehmicky" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://twitter.com/ehmicky"><img src="https://avatars2.githubusercontent.com/u/8136211?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ehmicky</b></sub></a><br /><a href="https://github.com/ehmicky/terminal-theme/commits?author=ehmicky" title="Code">💻</a> <a href="#design-ehmicky" title="Design">🎨</a> <a href="#ideas-ehmicky" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/ehmicky/terminal-theme/commits?author=ehmicky" title="Documentation">📖</a></td>
   </tr>
 </table>
 

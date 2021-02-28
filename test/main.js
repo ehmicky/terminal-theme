@@ -1,7 +1,7 @@
 import test from 'ava'
 
-import colorsTheme from '../src/main.js'
+import terminalTheme from '../src/main.js'
 
 test('Dummy test', (t) => {
-  t.is(typeof colorsTheme, 'function')
+  t.is(typeof terminalTheme, 'function')
 })
