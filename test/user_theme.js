@@ -28,6 +28,14 @@ test('Shallow merge user theme', async (t) => {
   t.true(hasStyle(otherCategory, 'red'))
 })
 
+test('Ignore categories in user theme but not in default theme', async (t) => {
+  const { category } = await getCategories(
+    { otherCategory: 'red', category: undefined },
+    { fixture: 'success' },
+  )
+  t.is(category, undefined)
+})
+
 test('Allow .yaml extension', async (t) => {
   const category = await getCategory({}, { fixture: 'yaml' })
   t.true(hasStyle(category, 'blue'))
