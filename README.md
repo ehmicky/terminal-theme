@@ -7,11 +7,11 @@
 
 🎨 Use a color theme for your library's terminal output.
 
-A color theme enforces styling consistency and simplifies updating it.
+A color theme enforces consistency and simplifies updating styles.
 
-You specify the default theme, including the [colors](#styles) and the
-categories associated to those. Users [can optionally override it](#user-theme)
-with a `terminal-theme.yml` in their repository.
+The default theme is specified by the library: [styles](#styles) and categories
+associated to them. Users [can then optionally override it](#user-theme) with a
+`terminal-theme.yml` in their repository.
 
 This uses the popular [`chalk`](https://github.com/chalk/chalk) colors library
 under the hood, so this includes
