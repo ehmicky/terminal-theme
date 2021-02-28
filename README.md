@@ -36,7 +36,7 @@ const exampleLibrary = async function () {
 }
 ```
 
-## User theme
+# User theme
 
 Users can override the `defaultTheme` by creating a `terminal-theme.yml` in the
 current or any parent directory.
@@ -124,7 +124,7 @@ _Default_: `process.cwd()`
 
 Current directory. Used when looking for `terminal-theme.yml`.
 
-## Styles
+# Styles
 
 The full list of styles is:
 
