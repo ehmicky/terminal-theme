@@ -27,8 +27,8 @@ const exampleLibrary = async function ({ theme }) {
 }
 ```
 
-Users can override themes using a `colors-theme.yml` in the parent directory or
-any parent directory:
+Users can override themes using a `colors-theme.yml` in the current or any
+parent directory:
 
 ```yml
 error: yellow bold
