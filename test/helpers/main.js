@@ -5,16 +5,20 @@ import terminalTheme from '../../src/main.js'
 
 const FIXTURES_DIR = `${__dirname}/../fixtures`
 
-export const getCategory = async function (
+export const getCategory = async function (defaultTheme, opts) {
+  const { category } = await getCategories(defaultTheme, opts)
+  return category
+}
+
+export const getCategories = async function (
   defaultTheme,
   { fixture, ...opts } = {},
 ) {
   const cwd = fixture === undefined ? undefined : `${FIXTURES_DIR}/${fixture}`
-  const { category } = await terminalTheme(
+  return await terminalTheme(
     { category: 'red', ...defaultTheme },
     { colors: true, cwd, ...opts },
   )
-  return category
 }
 
 export const hasStyle = function (category, style) {

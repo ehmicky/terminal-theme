@@ -1,11 +1,19 @@
 import test from 'ava'
 
-import { getCategory, hasStyle } from './helpers/main.js'
+import { getCategory, getCategories, hasStyle } from './helpers/main.js'
 
-test('Trim style', async (t) => {
+test('Use user theme', async (t) => {
   const category = await getCategory(
     { category: 'red' },
     { fixture: 'success' },
   )
   t.true(hasStyle(category, 'blue'))
+})
+
+test('Shallow merge user theme', async (t) => {
+  const { otherCategory } = await getCategories(
+    { otherCategory: 'red' },
+    { fixture: 'success' },
+  )
+  t.true(hasStyle(otherCategory, 'red'))
 })
