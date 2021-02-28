@@ -20,7 +20,7 @@ const defaultTheme = {
   success: 'green',
 }
 
-const exampleLibrary = async function ({ theme }) {
+const exampleLibrary = async function () {
   const { error, warning, success } = await terminalTheme(defaultTheme)
   // Print in green color
   console.log(success('example'))
