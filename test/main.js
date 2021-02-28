@@ -6,7 +6,7 @@ import { each } from 'test-each'
 
 import terminalTheme from '../src/main.js'
 
-each(['doesNotExist', 'red-255'], ({ title }, style) => {
+each(['doesNotExist', 'red-255', true], ({ title }, style) => {
   test(`Throws on invalid styles | ${title}`, async (t) => {
     await t.throwsAsync(terminalTheme(style))
   })
@@ -88,15 +88,6 @@ test('Can apply any styles | visible', async (t) => {
   t.is(category('test'), '')
 })
 
-test('Can apply multiple styles', async (t) => {
-  const { category } = await terminalTheme(
-    { category: 'red bold' },
-    { colors: true },
-  )
-  t.true(category('test').includes(color.red.open))
-  t.true(category('test').includes(modifier.bold.open))
-})
-
 test('Ignores multiple arguments', async (t) => {
   const { category } = await terminalTheme(
     { category: 'red' },
@@ -120,4 +111,22 @@ test('Does not allow chaining', async (t) => {
   )
   t.throws(() => category.bold('test'))
 })
+
+test('Trim style', async (t) => {
+  const { category } = await terminalTheme(
+    { category: ' red ' },
+    { colors: true },
+  )
+  t.true(category('test').includes(color.red.open))
+})
+
+test('Can apply multiple styles', async (t) => {
+  const { category } = await terminalTheme(
+    { category: 'red  bold' },
+    { colors: true },
+  )
+  t.true(category('test').includes(color.red.open))
+  t.true(category('test').includes(modifier.bold.open))
+})
+
 /* eslint-enable max-lines */
