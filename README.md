@@ -9,7 +9,7 @@
 
 A color theme enforces consistency and simplifies updating styles.
 
-The default theme is specified by the library: [styles](#styles) and categories
+The library specifies the default theme: [styles](#styles) and categories
 associated to them. Users [can then optionally override it](#user-theme) with a
 `terminal-theme.yml` in their repository.
 
