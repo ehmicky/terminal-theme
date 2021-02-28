@@ -78,38 +78,6 @@ const defaultTheme = {
 }
 ```
 
-The full list of styles is:
-
-```sh
-# Standard styling
-bold underline inverse reset
-
-# Those styles do not always work on Windows
-dim italic hidden strikethrough
-
-# Hidden when the terminal does not support colors
-visible
-
-# Basic colors
-black red green yellow blue magenta cyan white gray
-blackBright redBright greenBright yellowBright blueBright
-magentaBright cyanBright whiteBright
-
-# Advanced colors
-keyword-white
-hex-ffffff
-rgb-255-255-255
-hsl-360-100-100
-hsv-360-100-100
-hwb-360-100-100
-
-# Background colors
-bgBlack bgRed bgGreen bgYellow bgBlue bgMagenta bgCyan bgWhite bgGray
-bgBlackBright bgRedBright bgGreenBright bgYellowBright bgBlueBright
-bgMagentaBright bgCyanBright bgWhiteBright bgGrayBright
-bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
-```
-
 Users can override the `defaultTheme` by creating a `terminal-theme.yml` in the
 current or any parent directory.
 
@@ -161,6 +129,40 @@ _Type_: `string`\
 _Default_: `process.cwd()`
 
 Current directory. Used when looking for `terminal-theme.yml`.
+
+## Styles
+
+The full list of styles is:
+
+```sh
+# Standard styling
+bold underline inverse reset
+
+# Those styles do not always work on Windows
+dim italic hidden strikethrough
+
+# Hidden when the terminal does not support colors
+visible
+
+# Basic colors
+black red green yellow blue magenta cyan white gray
+blackBright redBright greenBright yellowBright blueBright
+magentaBright cyanBright whiteBright
+
+# Advanced colors
+keyword-white
+hex-ffffff
+rgb-255-255-255
+hsl-360-100-100
+hsv-360-100-100
+hwb-360-100-100
+
+# Background colors
+bgBlack bgRed bgGreen bgYellow bgBlue bgMagenta bgCyan bgWhite bgGray
+bgBlackBright bgRedBright bgGreenBright bgYellowBright bgBlueBright
+bgMagentaBright bgCyanBright bgWhiteBright bgGrayBright
+bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
+```
 
 # Support
 
