@@ -1,11 +1,22 @@
 import test from 'ava'
-import { each } from 'test-each'
 
 import { getCategory } from './helpers/main.js'
 
-each(['doesNotExist', 'red-255', true], ({ title }, style) => {
-  test(`Throws on invalid styles | ${title}`, async (t) => {
-    await t.throwsAsync(getCategory({ category: style }))
+test('Does not allow non-existing styles', async (t) => {
+  await t.throwsAsync(getCategory({ category: 'doesNotExist' }), {
+    message: /is not valid/u,
+  })
+})
+
+test('Does not allow non-string styles', async (t) => {
+  await t.throwsAsync(getCategory({ category: true }), {
+    message: /must be a string/u,
+  })
+})
+
+test('Does not allow arguments with some styles', async (t) => {
+  await t.throwsAsync(getCategory({ category: 'red-255' }), {
+    message: /no arguments/u,
   })
 })
 
@@ -16,10 +27,10 @@ test('Ignores multiple arguments', async (t) => {
 
 test('Does not allow non-string arguments', async (t) => {
   const category = await getCategory()
-  t.throws(() => category())
+  t.throws(() => category(), { message: /Argument must be a string/u })
 })
 
 test('Does not allow chaining', async (t) => {
   const category = await getCategory()
-  t.throws(() => category.bold('test'))
+  t.throws(() => category.bold('test'), { message: /is not a function/u })
 })
