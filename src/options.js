@@ -5,22 +5,22 @@ import isPlainObj from 'is-plain-obj'
 import { validate } from 'jest-validate'
 
 // Normalize options and assign default values
-export const getOpts = function (theme, opts = {}) {
-  validateOpts(theme, opts)
+export const getOpts = function (defaultTheme, opts = {}) {
+  validateOpts(defaultTheme, opts)
   const optsA = filterObj(opts, isDefined)
   const colorsOptionOpts = { ...DEFAULT_OPTS, ...optsA }
   return { colorsOptionOpts }
 }
 
-const validateOpts = function (theme, opts) {
-  validateTheme(theme)
+const validateOpts = function (defaultTheme, opts) {
+  validateDefaultTheme(defaultTheme)
   validateBasicOpts(opts)
   validate(opts, { exampleConfig: EXAMPLE_OPTS, recursiveDenylist: ['stream'] })
 }
 
-const validateTheme = function (theme) {
-  if (theme === undefined || !isPlainObj(theme)) {
-    throw new TypeError('The first argument must be a theme object')
+const validateDefaultTheme = function (defaultTheme) {
+  if (defaultTheme === undefined || !isPlainObj(defaultTheme)) {
+    throw new TypeError('The first argument must be a default theme object')
   }
 }
 

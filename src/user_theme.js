@@ -8,10 +8,13 @@ import { load as loadYaml, JSON_SCHEMA } from 'js-yaml'
 // directory or any parent directory.
 // The file is intentionally not namespaced per application, so users can re-use
 // consistent theming across applications, providing they use the same keys.
-export const applyUserTheme = async function (theme, cwd) {
+export const applyUserTheme = async function (defaultTheme, cwd) {
   const userTheme = await getUserTheme(cwd)
-  const userThemeA = filterObj(userTheme, (key) => theme[key] !== undefined)
-  return { ...theme, ...userThemeA }
+  const userThemeA = filterObj(
+    userTheme,
+    (key) => defaultTheme[key] !== undefined,
+  )
+  return { ...defaultTheme, ...userThemeA }
 }
 
 const getUserTheme = async function (cwd) {
