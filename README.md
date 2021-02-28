@@ -21,14 +21,16 @@ thanks to [`chalk`](https://github.com/chalk/chalk).
 ```js
 const terminalTheme = require('terminal-theme')
 
+// Any category/key is possible
 const defaultTheme = {
   error: 'red bold',
-  warning: 'yellow',
   success: 'green',
+  title: 'white bold',
+  subtitle: 'gray',
 }
 
 const exampleLibrary = async function () {
-  const { error, warning, success } = await terminalTheme(defaultTheme)
+  const { error, success, title, subtitle } = await terminalTheme(defaultTheme)
   // Print in green color
   console.log(success('example'))
 }
