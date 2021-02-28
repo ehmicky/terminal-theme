@@ -9,14 +9,14 @@ Use a color theme for your library's terminal output.
 
 A color theme enforces styling consistency and simplifies updating it.
 
-You specify the default theme, including the colors and the categories
-associated to those. Users can optionally override it with a
+You specify the default theme, including the [colors](#styles) and the
+categories associated to those. Users can optionally override it with a
 `terminal-theme.yml` in their repository.
 
 This uses the popular [`chalk`](https://github.com/chalk/chalk) colors library
 under the hood, so this includes
-[all its features](https://github.com/chalk/chalk#highlights) (256/Truecolor,
-terminal colors detection).
+[all its features](https://github.com/chalk/chalk#highlights)
+([256/Truecolor](#styles), terminal colors detection).
 
 # Example
 
@@ -64,8 +64,8 @@ The `defaultTheme` argument is an object where:
 
 - Each key is a category that should have consistent styling. Examples include
   `error`, `success`, `link`, `header`, etc.
-- Each value is a string that is a space-separated list of styles. Some styles
-  require dash-separated arguments.
+- Each value is a string that is a space-separated list of [styles](#styles).
+  [Some styles](#styles) require dash-separated arguments.
 
 ```js
 const defaultTheme = {
@@ -91,7 +91,7 @@ success: cyan
 The return value is a promise resolving to an object where:
 
 - Each key is a category defined in the theme.
-- Each value is a function applying styles to a string.
+- Each value is a function applying [styles](#styles) to a string.
 
 ```js
 const exampleLibrary = async function () {
