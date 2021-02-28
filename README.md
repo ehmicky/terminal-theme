@@ -73,6 +73,13 @@ _Default_: [`process.stdout`](https://nodejs.org/api/process.html#process_proces
 Stream used to detect colors support. This should be the file or terminal where
 the colors are output.
 
+#### cwd
+
+_Type_: `string`\
+_Default_: `process.cwd()`
+
+Current directory. Used when looking for `colors-theme.yml`.
+
 # Support
 
 If you found a bug or would like a new feature, _don't hesitate_ to
