@@ -1,16 +1,8 @@
-/* eslint-disable max-lines */
-import { modifier, color } from 'ansi-styles'
 import test from 'ava'
 import hasAnsi from 'has-ansi'
 import { each } from 'test-each'
 
 import terminalTheme from '../src/main.js'
-
-each(['doesNotExist', 'red-255', true], ({ title }, style) => {
-  test(`Throws on invalid styles | ${title}`, async (t) => {
-    await t.throwsAsync(terminalTheme(style))
-  })
-})
 
 each(
   [
@@ -87,46 +79,3 @@ test('Can apply any styles | visible', async (t) => {
   )
   t.is(category('test'), '')
 })
-
-test('Ignores multiple arguments', async (t) => {
-  const { category } = await terminalTheme(
-    { category: 'red' },
-    { colors: true },
-  )
-  t.false(category('one', 'two').includes('two'))
-})
-
-test('Does not allow non-string arguments', async (t) => {
-  const { category } = await terminalTheme(
-    { category: 'red' },
-    { colors: true },
-  )
-  t.throws(() => category())
-})
-
-test('Does not allow chaining', async (t) => {
-  const { category } = await terminalTheme(
-    { category: 'red' },
-    { colors: true },
-  )
-  t.throws(() => category.bold('test'))
-})
-
-test('Trim style', async (t) => {
-  const { category } = await terminalTheme(
-    { category: ' red ' },
-    { colors: true },
-  )
-  t.true(category('test').includes(color.red.open))
-})
-
-test('Can apply multiple styles', async (t) => {
-  const { category } = await terminalTheme(
-    { category: 'red  bold' },
-    { colors: true },
-  )
-  t.true(category('test').includes(color.red.open))
-  t.true(category('test').includes(modifier.bold.open))
-})
-
-/* eslint-enable max-lines */
