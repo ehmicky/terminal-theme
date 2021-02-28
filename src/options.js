@@ -7,9 +7,10 @@ import { validate } from 'jest-validate'
 // Normalize options and assign default values
 export const getOpts = function (defaultTheme, opts = {}) {
   validateOpts(defaultTheme, opts)
+  const defaultThemeA = filterObj(defaultTheme, isDefined)
   const optsA = filterObj(opts, isDefined)
   const { cwd, ...colorsOptionOpts } = { ...getDefaultOpts(), ...optsA }
-  return { colorsOptionOpts, cwd }
+  return { defaultTheme: defaultThemeA, colorsOptionOpts, cwd }
 }
 
 const validateOpts = function (defaultTheme, opts) {
