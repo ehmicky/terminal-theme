@@ -102,19 +102,12 @@ rgb-255-255-255
 hsl-360-100-100
 hsv-360-100-100
 hwb-360-100-100
-hcg-360-100-100
-cmyk-100-100-100-100
-lab-100-128-128
-lch-100-132-360
-xyz-95-100-109
-apple-65535-65535-65535
 
 # Background colors
 bgBlack bgRed bgGreen bgYellow bgBlue bgMagenta bgCyan bgWhite bgGray
 bgBlackBright bgRedBright bgGreenBright bgYellowBright bgBlueBright
 bgMagentaBright bgCyanBright bgWhiteBright bgGrayBright
 bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
-bgHcg-* bgCmyk-* bgLab-* bgLch-* bgXyz-* bgApple-*
 ```
 
 ### Return value
