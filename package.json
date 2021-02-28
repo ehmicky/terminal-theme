@@ -16,8 +16,8 @@
   },
   "description": "🎨 Use a color theme for your code's terminal output",
   "keywords": [
-    "color",
     "colors",
+    "color",
     "option",
     "config",
     "configuration",
