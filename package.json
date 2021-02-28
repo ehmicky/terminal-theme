@@ -1,0 +1,64 @@
+{
+  "name": "colors-theme",
+  "version": "1.0.0",
+  "main": "build/src/main.js",
+  "files": [
+    "build/src/**/*.{js,ts,map,json,sh,md}",
+    "examples/**/*.{js,ts,map,json,sh,md}"
+  ],
+  "scripts": {
+    "test": "gulp test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "gulp -LL check --full"
+    }
+  },
+  "description": "Custom color themes for terminal output",
+  "keywords": [
+    "color",
+    "colors",
+    "option",
+    "config",
+    "configuration",
+    "theme",
+    "chalk",
+    "kleur",
+    "ansi",
+    "rgb",
+    "terminal",
+    "tty",
+    "shell",
+    "bash",
+    "cli",
+    "es6",
+    "javascript",
+    "nodejs",
+    "library",
+    "windows"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://git.io/JtjXA",
+  "repository": "ehmicky/colors-theme",
+  "bugs": {
+    "url": "https://github.com/ehmicky/colors-theme/issues"
+  },
+  "author": "ehmicky <ehmicky@gmail.com> (https://github.com/ehmicky)",
+  "directories": {
+    "doc": "docs",
+    "lib": "src",
+    "test": "test"
+  },
+  "dependencies": {
+    "colors-option": "^1.0.0",
+    "filter-obj": "^2.0.1",
+    "is-plain-obj": "^3.0.0",
+    "jest-validate": "^26.6.2"
+  },
+  "devDependencies": {
+    "@ehmicky/dev-tasks": "^0.31.84"
+  },
+  "engines": {
+    "node": ">=10.17.0"
+  }
+}
