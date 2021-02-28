@@ -3,10 +3,16 @@ import * as ansiStyles from 'ansi-styles'
 
 import terminalTheme from '../../src/main.js'
 
-export const getCategory = async function (defaultTheme, opts) {
+const FIXTURES_DIR = `${__dirname}/../fixtures`
+
+export const getCategory = async function (
+  defaultTheme,
+  { fixture, ...opts } = {},
+) {
+  const cwd = fixture === undefined ? undefined : `${FIXTURES_DIR}/${fixture}`
   const { category } = await terminalTheme(
     { category: 'red', ...defaultTheme },
-    { colors: true, ...opts },
+    { colors: true, cwd, ...opts },
   )
   return category
 }
