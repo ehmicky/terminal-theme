@@ -18,7 +18,11 @@ const validateOpts = function (theme, opts) {
   validate(opts, { exampleConfig: EXAMPLE_OPTS, recursiveDenylist: ['stream'] })
 }
 
-const validateTheme = function (theme) {}
+const validateTheme = function (theme) {
+  if (theme === undefined || !isPlainObj(theme)) {
+    throw new TypeError('The first argument must be a theme object')
+  }
+}
 
 const validateBasicOpts = function (opts) {
   if (!isPlainObj(opts)) {

@@ -1,6 +1,7 @@
 import colorsOption from 'colors-option'
 
 import { getOpts } from './options.js'
+import { getThemer } from './themer.js'
 
 // Thin wrapper around `chalk which adds support for color theming.
 const colorsTheme = function (theme, opts) {
