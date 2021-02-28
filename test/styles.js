@@ -2,7 +2,7 @@ import test from 'ava'
 import hasAnsi from 'has-ansi'
 import { each } from 'test-each'
 
-import terminalTheme from '../src/main.js'
+import { getCategory } from './helpers/main.js'
 
 each(
   [
@@ -63,19 +63,13 @@ each(
   ],
   ({ title }, style) => {
     test(`Can apply any styles | ${title}`, async (t) => {
-      const { category } = await terminalTheme(
-        { category: style },
-        { colors: true },
-      )
+      const category = await getCategory({ category: style })
       t.true(hasAnsi(category('test')))
     })
   },
 )
 
 test('Can apply any styles | visible', async (t) => {
-  const { category } = await terminalTheme(
-    { category: 'visible' },
-    { colors: false },
-  )
+  const category = await getCategory({ category: 'visible' }, { colors: false })
   t.is(category('test'), '')
 })
