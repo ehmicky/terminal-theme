@@ -31,8 +31,8 @@ Users can override themes using a `colors-theme.yml` in the parent directory or
 any parent directory:
 
 ```yml
-error: blue inverse
-success: blue
+error: yellow bold
+success: cyan
 ```
 
 # Install
