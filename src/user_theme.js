@@ -35,7 +35,7 @@ const getUserThemeContent = async function (userThemePath) {
   try {
     return await fs.readFile(userThemePath, 'utf8')
   } catch (error) {
-    throw new Error(`Could not read "${userThemePath}": ${error.message}`)
+    throw new Error(`Could not read "${userThemePath}"\n${error.message}`)
   }
 }
 

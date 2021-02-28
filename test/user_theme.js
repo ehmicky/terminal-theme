@@ -1,6 +1,13 @@
+import { promises as fs } from 'fs'
+
 import test from 'ava'
 
-import { getCategory, getCategories, hasStyle } from './helpers/main.js'
+import {
+  getCategory,
+  getCategories,
+  hasStyle,
+  FIXTURES_DIR,
+} from './helpers/main.js'
 
 test('Use user theme', async (t) => {
   const category = await getCategory({}, { fixture: 'success' })
@@ -18,4 +25,18 @@ test('Shallow merge user theme', async (t) => {
 test('Allow .yaml extension', async (t) => {
   const category = await getCategory({}, { fixture: 'yaml' })
   t.true(hasStyle(category, 'blue'))
+})
+
+test('Handle error while loading user theme', async (t) => {
+  const fixtureFile = `${FIXTURES_DIR}/read_error/terminal-theme.yml`
+  const { mode } = await fs.stat(fixtureFile)
+  await fs.chmod(fixtureFile, 0o000)
+
+  try {
+    await t.throwsAsync(getCategory({}, { fixture: 'read_error' }), {
+      message: /Could not read/u,
+    })
+  } finally {
+    await fs.chmod(fixtureFile, mode)
+  }
 })

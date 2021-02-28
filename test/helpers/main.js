@@ -3,7 +3,7 @@ import * as ansiStyles from 'ansi-styles'
 
 import terminalTheme from '../../src/main.js'
 
-const FIXTURES_DIR = `${__dirname}/../fixtures`
+export const FIXTURES_DIR = `${__dirname}/../fixtures`
 
 export const getCategory = async function (defaultTheme, opts) {
   const { category } = await getCategories(defaultTheme, opts)
