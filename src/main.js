@@ -2,12 +2,14 @@ import colorsOption from 'colors-option'
 
 import { getOpts } from './options.js'
 import { getThemer } from './themer.js'
+import { applyUserTheme } from './user_theme.js'
 
 // Thin wrapper around `chalk which adds support for color theming.
-const colorsTheme = function (theme, opts) {
+const colorsTheme = async function (theme, opts) {
   const { colorsOptionOpts } = getOpts(theme, opts)
   const chalk = colorsOption(colorsOptionOpts)
-  const themer = getThemer(theme, chalk)
+  const themeA = await applyUserTheme(theme)
+  const themer = getThemer(themeA, chalk)
   return themer
 }
 

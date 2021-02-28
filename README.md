@@ -14,20 +14,32 @@ TODO
 ```js
 const colorsTheme = require('colors-theme')
 
-const exampleLibrary = function ({ theme }) {
-  const { error, warning, success } = colorsTheme({ ...CORE_THEME, ...theme })
+const exampleLibrary = async function ({ theme }) {
+  const { error, warning, success } = await colorsTheme({
+    ...DEFAULT_THEME,
+    ...theme,
+  })
   console.log(success('example'))
 }
 
-// Define a core theme
-const CORE_THEME = {
+const DEFAULT_THEME = {
   error: 'red bold',
   warning: 'yellow',
   success: 'green',
 }
+```
 
-// Allow users to override the theme
-exampleLibrary({ theme: { success: 'blue' } })
+Users can override theme either programmatically:
+
+```js
+exampleLibrary({ theme: { error: 'blue inverse', success: 'blue' } })
+```
+
+Or using a `colors-theme.yml` in the parent directory or any parent directory:
+
+```yml
+error: blue inverse
+success: blue
 ```
 
 # Install
@@ -42,7 +54,7 @@ npm install colors-theme
 
 `theme`: `object`\
 `options`: `object`\
-_Return value_: `object`
+_Return value_: `Promise<object>`
 
 ### Return value
 
