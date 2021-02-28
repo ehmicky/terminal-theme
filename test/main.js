@@ -5,7 +5,7 @@ import { each } from 'test-each'
 
 import terminalTheme from '../src/main.js'
 
-each(['doesNotExist'], ({ title }, style) => {
+each(['doesNotExist', 'red-255'], ({ title }, style) => {
   test(`Throws on invalid styles | ${title}`, async (t) => {
     await t.throwsAsync(terminalTheme(style))
   })
