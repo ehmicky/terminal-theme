@@ -51,11 +51,17 @@ const normalizeNumberArgs = function (args) {
 // Those chalk methods must receive a dash-separated list of arguments
 const ARGS_METHODS = {
   hsl: normalizeNumberArgs,
+  bgHsl: normalizeNumberArgs,
   hsv: normalizeNumberArgs,
+  bgHsv: normalizeNumberArgs,
   hwb: normalizeNumberArgs,
+  bgHwb: normalizeNumberArgs,
   rgb: normalizeNumberArgs,
+  bgRgb: normalizeNumberArgs,
   hex: false,
+  bgHex: false,
   keyword: false,
+  bgKeyword: false,
 }
 
 // Wraps chalk method in order to enforce a stricter, more functional signature:

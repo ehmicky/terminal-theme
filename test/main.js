@@ -55,12 +55,12 @@ each(
     'bgMagentaBright',
     'bgCyanBright',
     'bgWhiteBright',
-    // 'bgKeyword-white',
-    // 'bgHex-ffffff',
-    // 'bgRgb-255-255-255',
-    // 'bgHsl-360-100-100',
-    // 'bgHsv-360-100-100',
-    // 'bgHwb-360-100-100',
+    'bgKeyword-white',
+    'bgHex-ffffff',
+    'bgRgb-255-255-255',
+    'bgHsl-360-100-100',
+    'bgHsv-360-100-100',
+    'bgHwb-360-100-100',
   ],
   ({ title }, style) => {
     test(`Can apply any styles | ${title}`, async (t) => {
