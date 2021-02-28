@@ -13,8 +13,8 @@ The library specifies the default theme: [styles](#styles) and categories
 associated to them. Users [can then optionally override it](#user-theme) with a
 `terminal-theme.yml` in their repository.
 
-This supports [256/Truecolor](#styles) and terminal colors detection, thanks to
-the underlying colors library [`chalk`](https://github.com/chalk/chalk).
+This supports [256 colors, Truecolor](#styles) and terminal colors detection,
+thanks to [`chalk`](https://github.com/chalk/chalk).
 
 # Example
 
