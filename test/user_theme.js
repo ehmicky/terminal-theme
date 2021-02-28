@@ -1,5 +1,5 @@
 import { promises as fs } from 'fs'
-import { platform } from 'process'
+import { platform, cwd as getCwd, chdir } from 'process'
 
 import test from 'ava'
 
@@ -62,4 +62,17 @@ test('Does not allow invalid YAML in user theme ', async (t) => {
   await t.throwsAsync(getCategory({}, { fixture: 'invalid_yaml' }), {
     message: /Invalid YAML/u,
   })
+})
+
+test.serial('Default "cwd" option to current directory', async (t) => {
+  const fixtureDir = `${FIXTURES_DIR}/success`
+  const cwd = getCwd()
+  chdir(fixtureDir)
+
+  try {
+    const category = await getCategory()
+    t.true(hasStyle(category, 'blue'))
+  } finally {
+    chdir(cwd)
+  }
 })
