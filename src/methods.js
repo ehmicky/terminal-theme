@@ -10,36 +10,35 @@ export const getChalkMethods = function (key, chalk, methods) {
 }
 
 const getChalkMethod = function ({ key, chalk, method, args, input }) {
-  const chalkMethod = chalk[method]
-
-  if (typeof chalkMethod !== 'function') {
+  if (typeof chalk[method] !== 'function') {
     throw new TypeError(`In theme "${key}": "${input}" is not valid`)
   }
 
   const normalizeArgs = ARGS_METHODS[method]
 
   if (normalizeArgs === undefined) {
-    return getNoArgsChalkMethod({ key, method, args, chalkMethod })
+    return getNoArgsChalkMethod({ key, chalk, method, args })
   }
 
-  return getArgsChalkMethod({ args, chalkMethod, normalizeArgs })
+  return getArgsChalkMethod({ args, chalk, method, normalizeArgs })
 }
 
 // Chalk method which does not receive any arguments, e.g. `chalk.red(string)`
-const getNoArgsChalkMethod = function ({ key, method, args, chalkMethod }) {
+const getNoArgsChalkMethod = function ({ key, chalk, method, args }) {
   if (args.length !== 0) {
     throw new TypeError(
       `In theme "${key}": no arguments "${args[0]}" allowed with "${method}"`,
     )
   }
 
-  return chalkMethod
+  return chalk[method]
 }
 
-// Chalk method which receives arguments, e.g. `chalk.keyword('red')(string)`
-const getArgsChalkMethod = function ({ args, chalkMethod, normalizeArgs }) {
+// Chalk method which receives arguments, e.g. `chalk.keyword('red')(string)`.
+// We need to make sure `this` is `chalk` when calling the method.
+const getArgsChalkMethod = function ({ args, chalk, method, normalizeArgs }) {
   const argsA = normalizeChalkArgs(normalizeArgs, args)
-  return chalkMethod(...argsA)
+  return chalk[method](...argsA)
 }
 
 const normalizeChalkArgs = function (normalizeArgs, args) {
