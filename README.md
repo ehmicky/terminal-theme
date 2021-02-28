@@ -10,8 +10,7 @@
 A color theme enforces consistency and simplifies updating styles.
 
 The library specifies the default theme: [styles](#styles) and categories
-associated to them. Users [can then optionally override it](#user-theme) with a
-`terminal-theme.yml` in their repository.
+associated to them. Users [can then optionally override it](#user-theme).
 
 This supports [256 colors, Truecolor](#styles) and terminal colors detection,
 thanks to [`chalk`](https://github.com/chalk/chalk).
@@ -31,8 +30,7 @@ const defaultTheme = {
 
 const exampleLibrary = async function () {
   const { error, success, title, subtitle } = await terminalTheme(defaultTheme)
-  // Print in green color
-  console.log(success('example'))
+  console.log(success('example')) // Print in green color
 }
 ```
 
@@ -60,13 +58,13 @@ npm install terminal-theme
 `options`: `object`\
 _Return value_: `Promise<object>`
 
-### defaulTheme
+### defaultTheme
 
-The `defaultTheme` argument is an object where:
+The `defaultTheme` argument is an object where each:
 
-- Each key is a category that should have consistent styling. Examples include
+- Key is a category that should have consistent styling. Examples include
   `error`, `success`, `link`, `header`, etc.
-- Each value is a string that is a space-separated list of [styles](#styles).
+- Value is a string that is a space-separated list of [styles](#styles).
   [Some styles](#styles) require dash-separated arguments.
 
 ```js
@@ -82,10 +80,10 @@ const defaultTheme = {
 
 ### Return value
 
-The return value is a promise resolving to an object where:
+The return value is a promise resolving to an object where each:
 
-- Each key is a category defined in the theme.
-- Each value is a function applying [styles](#styles) to a string.
+- Key is a category defined in the theme.
+- Value is a function applying [styles](#styles) to a string.
 
 ```js
 const exampleLibrary = async function () {
