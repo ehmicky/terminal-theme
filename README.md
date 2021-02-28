@@ -9,11 +9,12 @@
 
 A color theme enforces consistency and simplifies updating styles.
 
-The library specifies the default theme: [styles](#styles) and categories
-associated to them. Users [can then optionally override it](#user-theme).
+The library specifies the default theme: [styles](#available-styles) and
+categories associated to them. Users
+[can then optionally override it](#user-theme).
 
-This supports [256 colors, Truecolor](#styles) and terminal colors detection,
-thanks to [`chalk`](https://github.com/chalk/chalk).
+This supports [256 colors, Truecolor](#available-styles) and terminal colors
+detection, thanks to [`chalk`](https://github.com/chalk/chalk).
 
 # Example
 
@@ -64,8 +65,8 @@ The `defaultTheme` argument is an object where each:
 
 - Key is a category with consistent styles. Examples include `error`, `success`,
   `link`, `header`, etc.
-- Value is a string that is a space-separated list of [styles](#styles).
-  [Some styles](#styles) require dash-separated arguments.
+- Value is a space-separated list of [styles](#available-styles). Some styles
+  require dash-separated arguments.
 
 ```js
 const defaultTheme = {
@@ -83,7 +84,7 @@ const defaultTheme = {
 The return value is a promise resolving to an object where each:
 
 - Key is a category defined in the theme.
-- Value is a function applying [styles](#styles) to a string.
+- Value is a function applying [styles](#available-styles) to a string.
 
 ```js
 const exampleLibrary = async function () {
@@ -120,11 +121,9 @@ the colors are output.
 _Type_: `string`\
 _Default_: `process.cwd()`
 
-Current directory. Used when looking for `terminal-theme.yml`.
+Current directory. Used when [looking for `terminal-theme.yml`](#user-theme).
 
-# Styles
-
-The full list of styles is:
+# Available styles
 
 ```sh
 # Standard styles
