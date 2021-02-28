@@ -78,14 +78,6 @@ const defaultTheme = {
 }
 ```
 
-Users can override the `defaultTheme` by creating a `terminal-theme.yml` in the
-current or any parent directory.
-
-```yml
-error: yellow bold
-success: cyan
-```
-
 ### Return value
 
 The return value is a promise resolving to an object where:
@@ -129,6 +121,16 @@ _Type_: `string`\
 _Default_: `process.cwd()`
 
 Current directory. Used when looking for `terminal-theme.yml`.
+
+## User theme
+
+Users can override the `defaultTheme` by creating a `terminal-theme.yml` in the
+current or any parent directory.
+
+```yml
+error: yellow bold
+success: cyan
+```
 
 ## Styles
 
