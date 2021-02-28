@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { modifier, color } from 'ansi-styles'
 import test from 'ava'
 import hasAnsi from 'has-ansi'
@@ -95,3 +96,28 @@ test('Can apply multiple styles', async (t) => {
   t.true(category('test').includes(color.red.open))
   t.true(category('test').includes(modifier.bold.open))
 })
+
+test('Ignores multiple arguments', async (t) => {
+  const { category } = await terminalTheme(
+    { category: 'red' },
+    { colors: true },
+  )
+  t.false(category('one', 'two').includes('two'))
+})
+
+test('Does not allow non-string arguments', async (t) => {
+  const { category } = await terminalTheme(
+    { category: 'red' },
+    { colors: true },
+  )
+  t.throws(() => category())
+})
+
+test('Does not allow chaining', async (t) => {
+  const { category } = await terminalTheme(
+    { category: 'red' },
+    { colors: true },
+  )
+  t.throws(() => category.bold('test'))
+})
+/* eslint-enable max-lines */
