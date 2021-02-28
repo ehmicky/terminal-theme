@@ -22,7 +22,7 @@ const getChalkMethod = function ({ key, chalk, method, args, input }) {
     return getNoArgsChalkMethod({ key, method, args, chalkMethod })
   }
 
-  return getArgsChalkMethod({ args, chalk, chalkMethod, normalizeArgs })
+  return getArgsChalkMethod({ args, chalkMethod, normalizeArgs })
 }
 
 // Chalk method which does not receive any arguments, e.g. `chalk.red(string)`
@@ -37,14 +37,9 @@ const getNoArgsChalkMethod = function ({ key, method, args, chalkMethod }) {
 }
 
 // Chalk method which receives arguments, e.g. `chalk.keyword('red')(string)`
-const getArgsChalkMethod = function ({
-  args,
-  chalk,
-  chalkMethod,
-  normalizeArgs,
-}) {
+const getArgsChalkMethod = function ({ args, chalkMethod, normalizeArgs }) {
   const argsA = normalizeChalkArgs(normalizeArgs, args)
-  return chalkMethod(...argsA).bind(chalk)
+  return chalkMethod(...argsA)
 }
 
 const normalizeChalkArgs = function (normalizeArgs, args) {
