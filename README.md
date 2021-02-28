@@ -7,7 +7,16 @@
 
 Use a color theme for your library's terminal output.
 
-TODO
+A color theme enforces styling consistency and simplifies updating it.
+
+You specify the default theme, including the colors and the categories
+associated to those. Users can optionally override it with a
+`terminal-theme.yml` in their repository.
+
+This uses the popular [`chalk`](https://github.com/chalk/chalk) colors library
+under the hood, so this includes
+[all its features](https://github.com/chalk/chalk#highlights) (256/Truecolor,
+terminal colors detection).
 
 # Example
 
@@ -27,8 +36,8 @@ const exampleLibrary = async function () {
 }
 ```
 
-Users can override themes using a `terminal-theme.yml` in the current or any
-parent directory:
+Users can override it using a `terminal-theme.yml` in the current or any parent
+directory:
 
 ```yml
 error: yellow bold
@@ -49,9 +58,81 @@ npm install terminal-theme
 `options`: `object`\
 _Return value_: `Promise<object>`
 
+### defaulTheme
+
+The `defaultTheme` is an object where:
+
+- Each key is a category that should have consistent styling. Examples include
+  `error`, `success`, `link`, `header` or anything else.
+- Each value is a string that is a space-separated list of styles. Some styles
+  require dash-separated arguments.
+
+```js
+const defaultTheme = {
+  // Single style, without arguments
+  success: 'green',
+  // Single style, with arguments
+  warning: 'rgb-226-126-26',
+  // Multiple styles
+  error: 'red bold',
+}
+```
+
+The full list of styles is:
+
+```sh
+# Standard styling
+bold underline inverse reset
+
+# Those styles do not always work on Windows
+dim italic hidden strikethrough
+
+# Hidden when the terminal does not support colors
+visible
+
+# Basic colors
+black red green yellow blue magenta cyan white gray
+blackBright redBright greenBright yellowBright blueBright
+magentaBright cyanBright whiteBright
+
+# Advanced colors
+keyword-white
+hex-ffffff
+rgb-255-255-255
+hsl-360-100-100
+hsv-360-100-100
+hwb-360-100-100
+hcg-360-100-100
+cmyk-100-100-100-100
+lab-100-128-128
+lch-100-132-360
+xyz-95-100-109
+apple-65535-65535-65535
+
+# Background colors
+bgBlack bgRed bgGreen bgYellow bgBlue bgMagenta bgCyan bgWhite bgGray
+bgBlackBright bgRedBright bgGreenBright bgYellowBright bgBlueBright
+bgMagentaBright bgCyanBright bgWhiteBright bgGrayBright
+bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
+bgHcg-* bgCmyk-* bgLab-* bgLch-* bgXyz-* bgApple-*
+```
+
 ### Return value
 
-TODO
+The return value is an object where:
+
+- Each key is a category defined in the theme.
+- Each value is a function that applies styling to a string.
+
+```js
+const exampleLibrary = async function () {
+  const { error, success } = await terminalTheme({
+    error: 'red',
+    success: 'green',
+  })
+  console.log(success('example'))
+}
+```
 
 ### options
 
