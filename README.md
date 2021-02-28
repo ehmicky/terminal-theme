@@ -151,7 +151,7 @@ hwb-360-100-100
 # Background colors
 bgBlack bgRed bgGreen bgYellow bgBlue bgMagenta bgCyan bgWhite bgGray
 bgBlackBright bgRedBright bgGreenBright bgYellowBright bgBlueBright
-bgMagentaBright bgCyanBright bgWhiteBright bgGrayBright
+bgMagentaBright bgCyanBright bgWhiteBright
 bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
 ```
 
