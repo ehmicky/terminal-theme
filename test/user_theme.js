@@ -44,3 +44,9 @@ if (platform !== 'win32') {
     }
   })
 }
+
+test('Does not allow invalid YAML in user theme ', async (t) => {
+  await t.throwsAsync(getCategory({}, { fixture: 'invalid_yaml' }), {
+    message: /Invalid YAML/u,
+  })
+})
