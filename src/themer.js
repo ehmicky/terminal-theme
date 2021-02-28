@@ -6,49 +6,54 @@ export const getThemer = function (theme, chalk) {
 }
 
 const getColor = function (key, value, chalk) {
-  const { method, args } = parseValue(key, value)
-  const chalkMethod = getChalkMethod({ key, value, chalk, method, args })
-  return [key, chalkMethod]
+  const methods = parseValue(key, value)
+  const chalkMethods = getChalkMethods(key, chalk, methods)
+  return [key, chalkMethods]
 }
 
-// Parse a dash-separated string "method[-arg-otherArg-...]"
+// Parse a space-separated list of dash-separated methods like:
+//   "method otherMethod[-arg-otherArg-...] ..."
 const parseValue = function (key, value) {
   if (typeof value !== 'string') {
     throw new TypeError(`Theme "${key}" must be a string, not ${value}`)
   }
 
-  const [method, ...args] = value.split(ARGS_SEPARATOR)
-  return { method, args }
+  return value.trim().split(METHODS_SEPARATOR).map(parseRawMethod)
+}
+
+const METHODS_SEPARATOR = /\s+/u
+
+const parseRawMethod = function (input) {
+  const [method, ...args] = input.split(ARGS_SEPARATOR)
+  return { method, args, input }
 }
 
 const ARGS_SEPARATOR = '-'
 
-const getChalkMethod = function ({ key, value, chalk, method, args }) {
+const getChalkMethods = function (key, chalk, methods) {
+  return methods
+    .reduce(
+      (chalkA, { method, args, input }) =>
+        getChalkMethod({ key, chalk: chalkA, method, args, input }),
+      chalk,
+    )
+    .bind(chalk)
+}
+
+const getChalkMethod = function ({ key, chalk, method, args, input }) {
   const chalkMethod = chalk[method]
 
   if (typeof chalkMethod !== 'function') {
-    throw new TypeError(`In theme "${key}": "${value}" is not valid`)
+    throw new TypeError(`In theme "${key}": "${input}" is not valid`)
   }
-
-  const chalkMethodA = chalkMethod.bind(chalk)
 
   const normalizeArgs = ARGS_METHODS[method]
 
   if (normalizeArgs === undefined) {
-    return getNoArgsChalkMethod({
-      key,
-      method,
-      args,
-      chalkMethod: chalkMethodA,
-    })
+    return getNoArgsChalkMethod({ key, method, args, chalkMethod })
   }
 
-  return getArgsChalkMethod({
-    args,
-    chalk,
-    chalkMethod: chalkMethodA,
-    normalizeArgs,
-  })
+  return getArgsChalkMethod({ args, chalk, chalkMethod, normalizeArgs })
 }
 
 // Chalk method which does not receive any arguments, e.g. `chalk.red(string)`
