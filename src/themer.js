@@ -1,6 +1,6 @@
 import mapObj from 'map-obj'
 
-import { getChalkMethods } from './methods.js'
+import { getChalkMethod } from './methods.js'
 
 // Convert theme object instead an object where each value is a chalk method
 export const getThemer = function (theme, chalk) {
@@ -9,8 +9,8 @@ export const getThemer = function (theme, chalk) {
 
 const getColor = function (key, value, chalk) {
   const methods = parseValue(key, value)
-  const chalkMethods = getChalkMethods(key, chalk, methods)
-  return [key, chalkMethods]
+  const chalkMethod = getChalkMethod(key, chalk, methods)
+  return [key, chalkMethod]
 }
 
 // Parse a space-separated list of dash-separated methods like:

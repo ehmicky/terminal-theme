@@ -1,15 +1,14 @@
 // Retrieve several chalk methods, e.g. the `chalk.red.bold` function
-export const getChalkMethods = function (key, chalk, methods) {
-  return methods
-    .reduce(
-      (chalkA, { method, args, input }) =>
-        getChalkMethod({ key, chalk: chalkA, method, args, input }),
-      chalk,
-    )
-    .bind(chalk)
+export const getChalkMethod = function (key, chalk, methods) {
+  const chalkMethod = methods.reduce(
+    (chalkA, { method, args, input }) =>
+      addChalkMethod({ key, chalk: chalkA, method, args, input }),
+    chalk,
+  )
+  return methodWrapper.bind(chalk, chalkMethod)
 }
 
-const getChalkMethod = function ({ key, chalk, method, args, input }) {
+const addChalkMethod = function ({ key, chalk, method, args, input }) {
   if (typeof chalk[method] !== 'function') {
     throw new TypeError(`In theme "${key}": "${input}" is not valid`)
   }
@@ -57,4 +56,16 @@ const ARGS_METHODS = {
   rgb: normalizeNumberArgs,
   hex: false,
   keyword: false,
+}
+
+// Wraps chalk method in order to enforce a stricter, more functional signature:
+//  - No chaining
+//  - No variadic argument
+//  - Argument must be a string
+const methodWrapper = function (chalkMethod, string) {
+  if (typeof string !== 'string') {
+    throw new TypeError(`Argument must be a string, not ${string}`)
+  }
+
+  return chalkMethod(string)
 }
