@@ -7,11 +7,11 @@
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-4cc61e.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-4cc61e.svg?logo=medium)](https://medium.com/@ehmicky)
 
-🎨 Use a color theme for your library's terminal output.
+🎨 Use a color theme for your code's terminal output.
 
 A color theme enforces consistency and simplifies updating styles.
 
-The library specifies the default theme: [styles](#available-styles) and
+Your code specifies the default theme: [styles](#available-styles) and
 categories associated to them. Users
 [can then optionally override it](#user-theme).
 
@@ -31,7 +31,7 @@ const defaultTheme = {
   subtitle: 'gray',
 }
 
-const exampleLibrary = async function () {
+const exampleFunction = async function () {
   const { error, success, title, subtitle } = await terminalTheme(defaultTheme)
   console.log(success('example')) // Print in green color
 }
@@ -50,7 +50,7 @@ success: cyan
 Or programmatically:
 
 ```js
-const exampleLibrary = async function (userTheme) {
+const exampleFunction = async function (userTheme) {
   const { error, success, title, subtitle } = await terminalTheme({
     ...defaultTheme,
     ...userTheme,
@@ -101,7 +101,7 @@ The return value is a promise resolving to an object where each:
 - Value is a function applying [styles](#available-styles) to a string.
 
 ```js
-const exampleLibrary = async function () {
+const exampleFunction = async function () {
   const { error, success } = await terminalTheme({
     error: 'red',
     success: 'green',

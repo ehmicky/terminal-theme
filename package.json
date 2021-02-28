@@ -14,7 +14,7 @@
       "pre-push": "gulp -LL check --full"
     }
   },
-  "description": "🎨 Use a color theme for your library's terminal output",
+  "description": "🎨 Use a color theme for your code's terminal output",
   "keywords": [
     "color",
     "colors",
