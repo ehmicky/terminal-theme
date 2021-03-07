@@ -169,6 +169,11 @@ bgMagentaBright bgCyanBright bgWhiteBright
 bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
 ```
 
+# See also
+
+- [`colors-option`](https://github.com/ehmicky/colors-option): Let users toggle
+  colors.
+
 # Support
 
 For any question, _don't hesitate_ to [submit an issue on GitHub](../../issues).
