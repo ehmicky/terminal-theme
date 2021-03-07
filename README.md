@@ -28,7 +28,8 @@ const defaultTheme = {
   error: 'red bold',
   success: 'green',
   title: 'white bold',
-  subtitle: 'gray',
+  // Truecolor is supported
+  subtitle: 'rgb-150-100-100',
 }
 
 const exampleFunction = async function () {
