@@ -5,7 +5,8 @@ import { getThemer } from './themer.js'
 import { applyUserTheme } from './user_theme.js'
 
 // Thin wrapper around `chalk` which adds support for color theming.
-const terminalTheme = async function (defaultTheme, opts) {
+// eslint-disable-next-line import/no-default-export
+export default async function terminalTheme(defaultTheme, opts) {
   const {
     defaultTheme: defaultThemeA,
     colorsOptionOpts,
@@ -16,7 +17,3 @@ const terminalTheme = async function (defaultTheme, opts) {
   const themer = getThemer(theme, chalk)
   return themer
 }
-
-// We do not use `export default` because Babel transpiles it in a way that
-// requires CommonJS users to `require(...).default` instead of `require(...)`.
-module.exports = terminalTheme
