@@ -1,9 +1,13 @@
+import { fileURLToPath } from 'url'
+
 // eslint-disable-next-line import/no-namespace
 import * as ansiStyles from 'ansi-styles'
 // eslint-disable-next-line import/no-unresolved, node/no-missing-import
 import terminalTheme from 'terminal-theme'
 
-export const FIXTURES_DIR = `${__dirname}/../fixtures`
+export const FIXTURES_DIR = fileURLToPath(
+  new URL('../fixtures', import.meta.url),
+)
 
 export const getCategory = async function (defaultTheme, opts) {
   const { category } = await getCategories(defaultTheme, opts)
