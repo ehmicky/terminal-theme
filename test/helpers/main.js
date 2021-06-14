@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-namespace
 import * as ansiStyles from 'ansi-styles'
-
-import terminalTheme from '../../src/main.js'
+// eslint-disable-next-line import/no-unresolved, node/no-missing-import
+import terminalTheme from 'terminal-theme'
 
 export const FIXTURES_DIR = `${__dirname}/../fixtures`
 
