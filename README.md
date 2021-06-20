@@ -19,8 +19,6 @@ detection, thanks to [`chalk`](https://github.com/chalk/chalk).
 
 # Example
 
-<!-- eslint-disable node/no-missing-import -->
-
 ```js
 import terminalTheme from 'terminal-theme'
 
@@ -50,8 +48,6 @@ success: cyan
 ```
 
 Or programmatically:
-
-<!-- eslint-disable node/no-missing-import -->
 
 ```js
 import terminalTheme from 'terminal-theme'
@@ -107,8 +103,6 @@ The return value is a promise resolving to an object where each:
 
 - Key is a category defined in the theme.
 - Value is a function applying [styles](#available-styles) to a string.
-
-<!-- eslint-disable node/no-missing-import -->
 
 ```js
 import terminalTheme from 'terminal-theme'
