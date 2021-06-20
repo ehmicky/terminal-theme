@@ -84,8 +84,6 @@ The `defaultTheme` argument is an object where each:
 - Value is a space-separated list of [styles](#available-styles). Some styles
   require dash-separated arguments.
 
-<!-- eslint-disable import/unambiguous -->
-
 ```js
 const defaultTheme = {
   // Single style, without arguments
