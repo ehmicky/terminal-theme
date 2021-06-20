@@ -51,9 +51,11 @@ success: cyan
 
 Or programmatically:
 
-<!-- eslint-disable import/unambiguous -->
+<!-- eslint-disable node/no-missing-import -->
 
 ```js
+import terminalTheme from 'terminal-theme'
+
 const exampleFunction = async function (userTheme) {
   const { error, success, title, subtitle } = await terminalTheme({
     ...defaultTheme,
@@ -106,9 +108,11 @@ The return value is a promise resolving to an object where each:
 - Key is a category defined in the theme.
 - Value is a function applying [styles](#available-styles) to a string.
 
-<!-- eslint-disable import/unambiguous -->
+<!-- eslint-disable node/no-missing-import -->
 
 ```js
+import terminalTheme from 'terminal-theme'
+
 const exampleFunction = async function () {
   const { error, success } = await terminalTheme({
     error: 'red',
