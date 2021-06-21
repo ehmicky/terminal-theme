@@ -5,7 +5,6 @@ import { getThemer } from './themer.js'
 import { applyUserTheme } from './user_theme.js'
 
 // Thin wrapper around `chalk` which adds support for color theming.
-// eslint-disable-next-line import/no-default-export
 export default async function terminalTheme(defaultTheme, opts) {
   const {
     defaultTheme: defaultThemeA,
