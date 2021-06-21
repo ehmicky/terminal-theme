@@ -1,7 +1,6 @@
 import { fileURLToPath } from 'url'
 
 import ansiStyles from 'ansi-styles'
-// eslint-disable-next-line import/no-unresolved, node/no-missing-import
 import terminalTheme from 'terminal-theme'
 
 export const FIXTURES_DIR = fileURLToPath(
