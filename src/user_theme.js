@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 
 import filterObj from 'filter-obj'
-import findUp from 'find-up'
+import { findUp } from 'find-up'
 import { load as loadYaml, JSON_SCHEMA } from 'js-yaml'
 
 // Users can override theme by specifying a `terminal-theme.yml` in the current
