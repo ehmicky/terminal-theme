@@ -51,7 +51,7 @@
     "filter-obj": "^3.0.0",
     "find-up": "^6.1.0",
     "is-plain-obj": "^4.0.0",
-    "jest-validate": "^27.2.4",
+    "jest-validate": "^27.3.1",
     "js-yaml": "^4.1.0",
     "map-obj": "^4.3.0"
   },
