@@ -33,7 +33,7 @@ const getNoArgsChalkMethod = function ({ key, chalk, method, args }) {
   return chalk[method]
 }
 
-// Chalk method which receives arguments, e.g. `chalk.keyword('red')(string)`.
+// Chalk method which receives arguments, e.g. `chalk.rgb(...)(string)`.
 // We need to make sure `this` is `chalk` when calling the method.
 const getArgsChalkMethod = function ({ args, chalk, method, normalizeArgs }) {
   const argsA = normalizeChalkArgs(normalizeArgs, args)
@@ -50,18 +50,10 @@ const normalizeNumberArgs = function (args) {
 
 // Those chalk methods must receive a dash-separated list of arguments
 const ARGS_METHODS = {
-  hsl: normalizeNumberArgs,
-  bgHsl: normalizeNumberArgs,
-  hsv: normalizeNumberArgs,
-  bgHsv: normalizeNumberArgs,
-  hwb: normalizeNumberArgs,
-  bgHwb: normalizeNumberArgs,
   rgb: normalizeNumberArgs,
   bgRgb: normalizeNumberArgs,
   hex: false,
   bgHex: false,
-  keyword: false,
-  bgKeyword: false,
 }
 
 // Wraps chalk method in order to enforce a stricter, more functional signature:

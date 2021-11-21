@@ -163,18 +163,14 @@ blackBright redBright greenBright yellowBright blueBright
 magentaBright cyanBright whiteBright
 
 # Advanced colors
-keyword-white
 hex-ffffff
 rgb-255-255-255
-hsl-360-100-100
-hsv-360-100-100
-hwb-360-100-100
 
 # Background colors
 bgBlack bgRed bgGreen bgYellow bgBlue bgMagenta bgCyan bgWhite bgGray
 bgBlackBright bgRedBright bgGreenBright bgYellowBright bgBlueBright
 bgMagentaBright bgCyanBright bgWhiteBright
-bgKeyword-* bgHex-* bgRgb-* bgHsl-* bgHsv-* bgHwb-*
+bgHex-* bgRgb-*
 ```
 
 # See also
