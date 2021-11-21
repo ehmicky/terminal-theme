@@ -1,3 +1,10 @@
+# 3.0.0
+
+## Breaking changes
+
+- Remove the following styles: `keyword`, `hsl`, `hsv` and `hwb`. The following
+  styles should be used instead: `hex` and `rgb`.
+
 # 2.0.1
 
 ## Bug fixes
