@@ -47,7 +47,7 @@
     "test": "test"
   },
   "dependencies": {
-    "colors-option": "^2.0.1",
+    "colors-option": "^3.0.0",
     "filter-obj": "^3.0.0",
     "find-up": "^6.1.0",
     "is-plain-obj": "^4.0.0",
