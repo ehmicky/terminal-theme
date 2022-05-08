@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs'
+import { stat, chmod } from 'fs/promises'
 import { platform, cwd as getCwd, chdir } from 'process'
 
 import test from 'ava'
@@ -41,19 +41,19 @@ test('Allow .yaml extension', async (t) => {
   t.true(hasStyle(category, 'blue'))
 })
 
-// `fs.chmod()` does not quite work on Windows
+// `chmod()` does not quite work on Windows
 if (platform !== 'win32') {
   test('Handle error while reading user theme', async (t) => {
     const fixtureFile = `${FIXTURES_DIR}/read_error/terminal-theme.yml`
-    const { mode } = await fs.stat(fixtureFile)
-    await fs.chmod(fixtureFile, 0o000)
+    const { mode } = await stat(fixtureFile)
+    await chmod(fixtureFile, 0o000)
 
     try {
       await t.throwsAsync(getCategory({}, { fixture: 'read_error' }), {
         message: /Could not read/u,
       })
     } finally {
-      await fs.chmod(fixtureFile, mode)
+      await chmod(fixtureFile, mode)
     }
   })
 }

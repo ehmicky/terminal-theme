@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs'
+import { readFile } from 'fs/promises'
 
 import filterObj from 'filter-obj'
 import { findUp } from 'find-up'
@@ -33,7 +33,7 @@ const USER_THEME_FILES = ['terminal-theme.yml', 'terminal-theme.yaml']
 
 const getUserThemeContent = async function (userThemePath) {
   try {
-    return await fs.readFile(userThemePath, 'utf8')
+    return await readFile(userThemePath, 'utf8')
   } catch (error) {
     throw new Error(`Could not read "${userThemePath}"\n${error.message}`)
   }
