@@ -2,6 +2,7 @@
 
 [![Codecov](https://img.shields.io/codecov/c/github/ehmicky/terminal-theme.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/terminal-theme)
 [![Node](https://img.shields.io/node/v/terminal-theme.svg?logo=node.js)](https://www.npmjs.com/package/terminal-theme)
+[![TypeScript](https://img.shields.io/badge/-typed-brightgreen?logo=typescript&colorA=gray)](/src/main.d.ts)
 [![Twitter](https://img.shields.io/badge/%E2%80%8B-twitter-brightgreen.svg?logo=twitter)](https://twitter.com/intent/follow?screen_name=ehmicky)
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-brightgreen.svg?logo=medium)](https://medium.com/@ehmicky)
 
@@ -29,11 +30,8 @@ const defaultTheme = {
   // Truecolor is supported
   subtitle: 'rgb-150-100-100',
 }
-
-const exampleFunction = async function () {
-  const { error, success, title, subtitle } = await terminalTheme(defaultTheme)
-  console.log(success('example')) // Print in green color
-}
+const { error, success, title, subtitle } = await terminalTheme(defaultTheme)
+console.log(success('example')) // Print in green color
 ```
 
 # User theme
@@ -49,15 +47,11 @@ success: cyan
 Or programmatically:
 
 ```js
-import terminalTheme from 'terminal-theme'
-
-const exampleFunction = async function (userTheme) {
-  const { error, success, title, subtitle } = await terminalTheme({
-    ...defaultTheme,
-    ...userTheme,
-  })
-  console.log(success('example'))
-}
+const { error, success, title, subtitle } = await terminalTheme({
+  ...defaultTheme,
+  ...userTheme,
+})
+console.log(success('example'))
 ```
 
 # Install
@@ -106,15 +100,11 @@ The return value is a promise resolving to an object where each:
 - Value is a function applying [styles](#available-styles) to a string.
 
 ```js
-import terminalTheme from 'terminal-theme'
-
-const exampleFunction = async function () {
-  const { error, success } = await terminalTheme({
-    error: 'red',
-    success: 'green',
-  })
-  console.log(success('example'))
-}
+const { error, success } = await terminalTheme({
+  error: 'red',
+  success: 'green',
+})
+console.log(success('example'))
 ```
 
 ### options
