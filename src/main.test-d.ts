@@ -1,15 +1,16 @@
-import terminalTheme, {
-  Options,
-  Styles,
-  DefaultTheme,
-  Theme,
-} from 'terminal-theme'
 import {
   expectType,
   expectAssignable,
   expectNotAssignable,
   expectError,
 } from 'tsd'
+
+import terminalTheme, {
+  Options,
+  Styles,
+  DefaultTheme,
+  Theme,
+} from './main.js'
 
 const defaultTheme = { success: 'red' } as const
 const theme = await terminalTheme(defaultTheme)
