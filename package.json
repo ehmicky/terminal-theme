@@ -60,8 +60,7 @@
     "@ehmicky/dev-tasks": "^1.0.83",
     "ansi-styles": "^6.1.0",
     "has-ansi": "^5.0.1",
-    "test-each": "^5.1.1",
-    "tsd": "^0.22.0"
+    "test-each": "^5.1.1"
   },
   "engines": {
     "node": ">=14.18.0"
