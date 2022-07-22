@@ -1,4 +1,7 @@
-<img src="https://raw.githubusercontent.com/ehmicky/design/main/terminal-theme/terminal-theme.svg?sanitize=true" width="500"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ehmicky/design/main/terminal-theme/terminal-theme_dark.svg"/>
+  <img alt="terminal-theme logo" src="https://raw.githubusercontent.com/ehmicky/design/main/terminal-theme/terminal-theme.svg" width="500"/>
+</picture>
 
 [![Codecov](https://img.shields.io/codecov/c/github/ehmicky/terminal-theme.svg?label=tested&logo=codecov)](https://codecov.io/gh/ehmicky/terminal-theme)
 [![Node](https://img.shields.io/node/v/terminal-theme.svg?logo=node.js)](https://www.npmjs.com/package/terminal-theme)
