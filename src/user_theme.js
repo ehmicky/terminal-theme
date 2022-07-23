@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises'
 
-import filterObj from 'filter-obj'
+import { excludeKeys } from 'filter-obj'
 import { findUp } from 'find-up'
 import { load as loadYaml, JSON_SCHEMA } from 'js-yaml'
 
@@ -10,9 +10,9 @@ import { load as loadYaml, JSON_SCHEMA } from 'js-yaml'
 // consistent theming across applications, providing they use the same keys.
 export const applyUserTheme = async function (defaultTheme, cwd) {
   const userTheme = await getUserTheme(cwd)
-  const userThemeA = filterObj(
+  const userThemeA = excludeKeys(
     userTheme,
-    (key) => defaultTheme[key] !== undefined,
+    (key) => defaultTheme[key] === undefined,
   )
   return { ...defaultTheme, ...userThemeA }
 }

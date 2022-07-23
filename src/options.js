@@ -1,14 +1,14 @@
 import { stdout } from 'process'
 
-import filterObj from 'filter-obj'
+import { excludeKeys } from 'filter-obj'
 import isPlainObj from 'is-plain-obj'
 import { validate } from 'jest-validate'
 
 // Normalize options and assign default values
 export const getOpts = function (defaultTheme, opts = {}) {
   validateOpts(defaultTheme, opts)
-  const defaultThemeA = filterObj(defaultTheme, isDefined)
-  const optsA = filterObj(opts, isDefined)
+  const defaultThemeA = excludeKeys(defaultTheme, isUndefined)
+  const optsA = excludeKeys(opts, isUndefined)
   const { cwd, ...colorsOptionOpts } = { ...DEFAULT_OPTS, ...optsA }
   return { defaultTheme: defaultThemeA, colorsOptionOpts, cwd }
 }
@@ -31,8 +31,8 @@ const validateBasicOpts = function (opts) {
   }
 }
 
-const isDefined = function (key, value) {
-  return value !== undefined
+const isUndefined = function (key, value) {
+  return value === undefined
 }
 
 const DEFAULT_OPTS = {
