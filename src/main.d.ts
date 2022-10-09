@@ -1,70 +1,33 @@
-import type { Options as ColorsOptionOptions } from 'colors-option'
+import chalkString, {
+  Options as ChalkStringOptions,
+  Styles,
+} from 'chalk-string'
 
-export type Options = Partial<
-  Readonly<{
-    /**
-     * Whether colors should be enabled/disabled, regardless of terminal
-     * support.  Colors support is automatically detected, so this is only meant
-     * to override that default behavior.
-     *
-     * @default undefined
-     */
-    colors: ColorsOptionOptions['colors']
+export type Options = {
+  /**
+   * Whether colors should be enabled/disabled, regardless of terminal
+   * support.  Colors support is automatically detected, so this is only meant
+   * to override that default behavior.
+   *
+   * @default undefined
+   */
+  readonly colors?: ChalkStringOptions['colors']
 
-    /**
-     * Stream used to detect colors support.
-     * This should be the file or terminal where the colors are output.
-     *
-     * @default process.stdout
-     */
-    stream: NonNullable<ColorsOptionOptions['stream']>
+  /**
+   * Stream used to detect colors support.
+   * This should be the file or terminal where the colors are output.
+   *
+   * @default process.stdout
+   */
+  readonly stream?: ChalkStringOptions['stream']
 
-    /**
-     * Current directory. Used when looking for `terminal-theme.yml`.
-     *
-     * @default '.'
-     */
-    cwd: string
-  }>
->
-
-type BasicStyle =
-  | 'bold'
-  | 'underline'
-  | 'inverse'
-  | 'reset'
-  | 'dim'
-  | 'italic'
-  | 'hidden'
-  | 'strikethrough'
-  | 'visible'
-
-type BasicColors =
-  | 'black'
-  | 'red'
-  | 'green'
-  | 'yellow'
-  | 'blue'
-  | 'magenta'
-  | 'cyan'
-  | 'white'
-  | 'gray'
-
-type Style =
-  | BasicStyle
-  | BasicColors
-  | `${BasicColors}Bright`
-  | `hex-${string}`
-  | `rgb-${number}-${number}-${number}`
-  | `bg${Capitalize<BasicColors>}`
-  | `bg${Capitalize<BasicColors>}Bright`
-  | `bgHex-${string}`
-  | `bgRgb-${number}-${number}-${number}`
-
-/**
- * Space-separated list of styles. Some styles require dash-separated arguments.
- */
-export type Styles = Style | `${Style} ${Style}`
+  /**
+   * Current directory. Used when looking for `terminal-theme.yml`.
+   *
+   * @default '.'
+   */
+  readonly cwd?: string
+}
 
 /**
  * Object where each:
@@ -104,7 +67,9 @@ export type DefaultTheme = {
  * ```
  */
 export type Theme<ChosenDefaultTheme extends DefaultTheme> = {
-  readonly [category in keyof ChosenDefaultTheme]: (input: string) => string
+  readonly [category in keyof ChosenDefaultTheme]: (
+    input: Parameters<ReturnType<typeof chalkString>>[1],
+  ) => ReturnType<ReturnType<typeof chalkString>>
 }
 
 /**
