@@ -13,11 +13,11 @@ const hasStyle = function (string, style) {
   return string.includes(ansiStyles[style].open)
 }
 
-test('Can apply single styles without arguments', (t) => {
+test('Can apply single style without arguments', (t) => {
   t.true(hasStyle(chalk('red', 'test'), 'red'))
 })
 
-test('Can apply "visible" styles', (t) => {
+test('Can apply "visible" style', (t) => {
   t.is(noColorsChalk('visible', 'test'), '')
 })
 
@@ -104,5 +104,5 @@ test('Ignores multiple arguments', (t) => {
 })
 
 test('Does not allow non-string arguments', (t) => {
-  t.throws(() => chalk('red'), { message: /Argument must be a string/u })
+  t.throws(() => chalk('red', true), { message: /Argument must be a string/u })
 })
