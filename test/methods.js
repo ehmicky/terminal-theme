@@ -4,7 +4,7 @@ import { getCategory } from './helpers/main.js'
 
 test('Does not allow non-existing styles', async (t) => {
   await t.throwsAsync(getCategory({ category: 'doesNotExist' }), {
-    message: /is not valid/u,
+    message: /is unknown/u,
   })
 })
 
@@ -16,7 +16,7 @@ test('Does not allow non-string styles', async (t) => {
 
 test('Does not allow arguments with some styles', async (t) => {
   await t.throwsAsync(getCategory({ category: 'red-255' }), {
-    message: /no arguments/u,
+    message: /No arguments/u,
   })
 })
 
