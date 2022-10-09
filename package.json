@@ -46,7 +46,7 @@
     "test": "test"
   },
   "dependencies": {
-    "chalk-string": "^1.0.1",
+    "chalk-string": "^1.1.0",
     "filter-obj": "^5.1.0",
     "find-up": "^6.3.0",
     "is-plain-obj": "^4.1.0",
