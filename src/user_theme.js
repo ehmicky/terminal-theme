@@ -9,12 +9,17 @@ import { load as loadYaml, JSON_SCHEMA } from 'js-yaml'
 // The file is intentionally not namespaced per application, so users can re-use
 // consistent theming across applications, providing they use the same keys.
 export const applyUserTheme = async function (defaultTheme, cwd) {
+  const defaultThemeA = excludeKeys(defaultTheme, isUndefined)
   const userTheme = await getUserTheme(cwd)
   const userThemeA = excludeKeys(
     userTheme,
-    (key) => defaultTheme[key] === undefined,
+    (key) => defaultThemeA[key] === undefined,
   )
-  return { ...defaultTheme, ...userThemeA }
+  return { ...defaultThemeA, ...userThemeA }
+}
+
+const isUndefined = function (key, value) {
+  return value === undefined
 }
 
 const getUserTheme = async function (cwd) {

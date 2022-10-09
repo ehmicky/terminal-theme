@@ -6,13 +6,9 @@ import { applyUserTheme } from './user_theme.js'
 
 // Thin wrapper around `chalk` which adds support for color theming.
 export default async function terminalTheme(defaultTheme, opts) {
-  const {
-    defaultTheme: defaultThemeA,
-    colorsOptionOpts,
-    cwd,
-  } = getOpts(defaultTheme, opts)
+  const { cwd, colorsOptionOpts } = getOpts(defaultTheme, opts)
   const chalk = colorsOption(colorsOptionOpts)
-  const theme = await applyUserTheme(defaultThemeA, cwd)
+  const theme = await applyUserTheme(defaultTheme, cwd)
   const themer = getThemer(theme, chalk)
   return themer
 }

@@ -1,22 +1,12 @@
-import { stdout } from 'process'
-
-import { excludeKeys } from 'filter-obj'
 import isPlainObj from 'is-plain-obj'
-import { validate } from 'jest-validate'
 
 // Normalize options and assign default values
 export const getOpts = function (defaultTheme, opts = {}) {
-  validateOpts(defaultTheme, opts)
-  const defaultThemeA = excludeKeys(defaultTheme, isUndefined)
-  const optsA = excludeKeys(opts, isUndefined)
-  const { cwd, ...colorsOptionOpts } = { ...DEFAULT_OPTS, ...optsA }
-  return { defaultTheme: defaultThemeA, colorsOptionOpts, cwd }
-}
-
-const validateOpts = function (defaultTheme, opts) {
   validateDefaultTheme(defaultTheme)
   validateBasicOpts(opts)
-  validate(opts, { exampleConfig: EXAMPLE_OPTS, recursiveDenylist: ['stream'] })
+  const { cwd = '.', ...colorsOptionOpts } = opts
+  validateCwd(cwd)
+  return { cwd, colorsOptionOpts }
 }
 
 const validateDefaultTheme = function (defaultTheme) {
@@ -31,17 +21,12 @@ const validateBasicOpts = function (opts) {
   }
 }
 
-const isUndefined = function (key, value) {
-  return value === undefined
-}
+const validateCwd = function (cwd) {
+  if (typeof cwd !== 'string') {
+    throw new TypeError(`Option "cwd" must be a string: ${cwd}`)
+  }
 
-const DEFAULT_OPTS = {
-  cwd: '.',
-}
-
-const EXAMPLE_OPTS = {
-  ...DEFAULT_OPTS,
-  colors: true,
-  stream: stdout,
-  cwd: '/path',
+  if (cwd === '') {
+    throw new TypeError('Option "cwd" must not be an empty string')
+  }
 }

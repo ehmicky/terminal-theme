@@ -10,6 +10,7 @@ each(
     [{}, { colors: 0 }],
     [{}, { stream: true }],
     [{}, { cwd: true }],
+    [{}, { cwd: '' }],
   ],
   ({ title }, [defaultTheme, opts]) => {
     test(`Validate options | ${title}`, async (t) => {
