@@ -2,7 +2,7 @@ import mapObj from 'map-obj'
 
 import { chalkString } from './methods.js'
 import { getOpts } from './options.js'
-import { applyUserTheme } from './user_theme.js'
+import { applyUserTheme } from './theme.js'
 
 // Thin wrapper around `chalk` which adds support for color theming.
 export default async function terminalTheme(defaultTheme, opts) {
