@@ -1,3 +1,10 @@
+# 4.5.0
+
+## Features
+
+- Split underlying logic to separate module
+  [`chalk-string`](https://github.com/ehmicky/chalk-string)
+
 # 4.4.0
 
 ## Features
