@@ -165,10 +165,12 @@ bgMagentaBright bgCyanBright bgWhiteBright
 bgHex-* bgRgb-*
 ```
 
-# See also
+# Related projects
 
 - [`colors-option`](https://github.com/ehmicky/colors-option): Let users toggle
   colors.
+- [`chalk-string`](https://github.com/ehmicky/chalk-string): Chalk with style
+  strings.
 
 # Support
 
