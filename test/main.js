@@ -9,6 +9,10 @@ test('Can apply styles', async (t) => {
   t.true(hasStyle(category, 'red'))
 })
 
+test('Validate styles', async (t) => {
+  await t.throwsAsync(getCategory({ category: 'unknown' }))
+})
+
 test('Can specify "colors" option', async (t) => {
   const category = await getCategory({}, { colors: false })
   t.false(hasStyle(category, 'red'))
