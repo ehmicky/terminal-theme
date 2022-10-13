@@ -34,7 +34,7 @@
     "library",
     "windows"
   ],
-  "license": "Apache-2.0",
+  "license": "MIT",
   "homepage": "https://www.github.com/ehmicky/terminal-theme",
   "repository": "ehmicky/terminal-theme",
   "bugs": {
