@@ -1,4 +1,4 @@
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 
 import ansiStyles from 'ansi-styles'
 import terminalTheme from 'terminal-theme'

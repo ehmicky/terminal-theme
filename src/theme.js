@@ -1,4 +1,4 @@
-import { readFile } from 'fs/promises'
+import { readFile } from 'node:fs/promises'
 
 import { excludeKeys } from 'filter-obj'
 import { findUp } from 'find-up'
