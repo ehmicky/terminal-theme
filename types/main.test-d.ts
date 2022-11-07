@@ -5,7 +5,7 @@ import {
   expectError,
 } from 'tsd'
 
-import terminalTheme, { Options, DefaultTheme, Theme } from './main.js'
+import terminalTheme, { Options, DefaultTheme, Theme } from 'terminal-theme'
 
 const defaultTheme = { success: 'red bold' } as const
 const theme = await terminalTheme(defaultTheme)
