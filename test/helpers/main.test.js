@@ -3,9 +3,7 @@ import { fileURLToPath } from 'node:url'
 import ansiStyles from 'ansi-styles'
 import terminalTheme from 'terminal-theme'
 
-export const FIXTURES_DIR = fileURLToPath(
-  new URL('../fixtures', import.meta.url),
-)
+export const FIXTURES_DIR = fileURLToPath(new URL('fixtures', import.meta.url))
 
 export const getCategory = async function (defaultTheme, opts) {
   const { category } = await getCategories(defaultTheme, opts)
