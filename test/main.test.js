@@ -2,7 +2,7 @@ import { stderr } from 'node:process'
 
 import test from 'ava'
 
-import { getCategory, hasStyle } from './helpers/main.js'
+import { getCategory, hasStyle } from './helpers/main.test.js'
 
 test('Can apply styles', async (t) => {
   const category = await getCategory({ category: 'red' })

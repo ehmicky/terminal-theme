@@ -8,7 +8,7 @@ import {
   getCategories,
   hasStyle,
   FIXTURES_DIR,
-} from './helpers/main.js'
+} from './helpers/main.test.js'
 
 test('User theme has priority over default theme', async (t) => {
   const category = await getCategory({}, { fixture: 'success' })
