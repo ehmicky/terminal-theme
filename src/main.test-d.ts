@@ -1,6 +1,12 @@
+import { stderr } from 'node:process'
+
 import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
 
-import terminalTheme, { Options, DefaultTheme, Theme } from 'terminal-theme'
+import terminalTheme, {
+  type Options,
+  type DefaultTheme,
+  type Theme,
+} from 'terminal-theme'
 
 const defaultTheme = { success: 'red bold' } as const
 const theme = await terminalTheme(defaultTheme)
@@ -16,15 +22,14 @@ expectNotAssignable<DefaultTheme>({ success: 'other' })
 terminalTheme({ success: 'unknown' })
 
 expectType<Theme<typeof defaultTheme>>(theme)
-const { success } = theme
 // @ts-expect-error
 theme.other
 
-expectType<string>(success('input'))
+expectType<string>(theme.success('input'))
 // @ts-expect-error
-success()
+theme.success()
 // @ts-expect-error
-success(true)
+theme.success(true)
 
 terminalTheme({}, {})
 expectAssignable<Options>({})
@@ -36,8 +41,8 @@ expectAssignable<Options>({ colors: undefined })
 // @ts-expect-error
 terminalTheme({}, { colors: 1 })
 
-terminalTheme({}, { stream: process.stderr })
-expectAssignable<Options>({ stream: process.stderr })
+terminalTheme({}, { stream: stderr })
+expectAssignable<Options>({ stream: stderr })
 // @ts-expect-error
 terminalTheme({}, { stream: true })
 

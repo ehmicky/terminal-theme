@@ -1,6 +1,6 @@
 import chalkString, {
-  Options as ChalkStringOptions,
-  Styles,
+  type Options as ChalkStringOptions,
+  type Styles,
 } from 'chalk-string'
 
 export type Options = {

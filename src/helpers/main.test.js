@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url'
 
 import ansiStyles from 'ansi-styles'
+
 import terminalTheme from 'terminal-theme'
 
 export const FIXTURES_DIR = fileURLToPath(
