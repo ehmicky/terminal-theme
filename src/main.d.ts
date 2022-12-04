@@ -1,9 +1,7 @@
-import chalkString, {
-  type Options as ChalkStringOptions,
-  type Styles,
-} from 'chalk-string'
+import type chalkString from 'chalk-string'
+import type { Options as ChalkStringOptions, Styles } from 'chalk-string'
 
-export type Options = {
+export interface Options {
   /**
    * Whether colors should be enabled/disabled, regardless of terminal
    * support.  Colors support is automatically detected, so this is only meant
@@ -48,7 +46,7 @@ export type Options = {
  * }
  * ```
  */
-export type DefaultTheme = {
+export interface DefaultTheme {
   readonly [category: string]: Styles
 }
 

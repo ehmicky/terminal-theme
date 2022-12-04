@@ -13,13 +13,13 @@ const theme = await terminalTheme(defaultTheme)
 
 expectAssignable<DefaultTheme>(defaultTheme)
 // @ts-expect-error
-terminalTheme()
+await terminalTheme()
 // @ts-expect-error
-terminalTheme(true)
+await terminalTheme(true)
 expectNotAssignable<DefaultTheme>(true)
 expectNotAssignable<DefaultTheme>({ success: 'other' })
 // @ts-expect-error
-terminalTheme({ success: 'unknown' })
+await terminalTheme({ success: 'unknown' })
 
 expectType<Theme<typeof defaultTheme>>(theme)
 // @ts-expect-error
@@ -31,22 +31,22 @@ theme.success()
 // @ts-expect-error
 theme.success(true)
 
-terminalTheme({}, {})
+await terminalTheme({}, {})
 expectAssignable<Options>({})
 
-terminalTheme({}, { colors: true })
+await terminalTheme({}, { colors: true })
 expectAssignable<Options>({ colors: true })
-terminalTheme({}, { colors: undefined })
+await terminalTheme({}, { colors: undefined })
 expectAssignable<Options>({ colors: undefined })
 // @ts-expect-error
-terminalTheme({}, { colors: 1 })
+await terminalTheme({}, { colors: 1 })
 
-terminalTheme({}, { stream: stderr })
+await terminalTheme({}, { stream: stderr })
 expectAssignable<Options>({ stream: stderr })
 // @ts-expect-error
-terminalTheme({}, { stream: true })
+await terminalTheme({}, { stream: true })
 
-terminalTheme({}, { cwd: '/' })
+await terminalTheme({}, { cwd: '/' })
 expectAssignable<Options>({ cwd: '/' })
 // @ts-expect-error
-terminalTheme({}, { cwd: true })
+await terminalTheme({}, { cwd: true })
