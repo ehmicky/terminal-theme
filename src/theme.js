@@ -8,7 +8,7 @@ import { load as loadYaml, JSON_SCHEMA } from 'js-yaml'
 // directory or any parent directory.
 // The file is intentionally not namespaced per application, so users can re-use
 // consistent theming across applications, providing they use the same keys.
-export const applyUserTheme = async function (defaultTheme, cwd) {
+export const applyUserTheme = async (defaultTheme, cwd) => {
   const defaultThemeA = excludeKeys(defaultTheme, isUndefined)
   const userTheme = await getUserTheme(cwd)
   const userThemeA = excludeKeys(
@@ -18,11 +18,9 @@ export const applyUserTheme = async function (defaultTheme, cwd) {
   return { ...defaultThemeA, ...userThemeA }
 }
 
-const isUndefined = function (key, value) {
-  return value === undefined
-}
+const isUndefined = (key, value) => value === undefined
 
-const getUserTheme = async function (cwd) {
+const getUserTheme = async (cwd) => {
   const userThemePath = await findUp(USER_THEME_FILES, { cwd })
 
   if (userThemePath === undefined) {
@@ -36,7 +34,7 @@ const getUserTheme = async function (cwd) {
 
 const USER_THEME_FILES = ['terminal-theme.yml', 'terminal-theme.yaml']
 
-const getUserThemeContent = async function (userThemePath) {
+const getUserThemeContent = async (userThemePath) => {
   try {
     return await readFile(userThemePath, 'utf8')
   } catch (error) {
@@ -44,7 +42,7 @@ const getUserThemeContent = async function (userThemePath) {
   }
 }
 
-const parseUserTheme = function (userThemeContent, userThemePath) {
+const parseUserTheme = (userThemeContent, userThemePath) => {
   try {
     return loadYaml(userThemeContent, {
       schema: JSON_SCHEMA,
@@ -56,6 +54,6 @@ const parseUserTheme = function (userThemeContent, userThemePath) {
   }
 }
 
-const onWarning = function (error) {
+const onWarning = (error) => {
   throw error
 }
