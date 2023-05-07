@@ -1,12 +1,12 @@
 import { stderr } from 'node:process'
 
-import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
-
 import terminalTheme, {
   type Options,
   type DefaultTheme,
   type Theme,
 } from 'terminal-theme'
+import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
+
 
 const defaultTheme = { success: 'red bold' } as const
 const theme = await terminalTheme(defaultTheme)
