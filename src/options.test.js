@@ -2,7 +2,6 @@ import test from 'ava'
 import terminalTheme from 'terminal-theme'
 import { each } from 'test-each'
 
-
 each(
   [
     [],

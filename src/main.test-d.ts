@@ -7,7 +7,6 @@ import terminalTheme, {
 } from 'terminal-theme'
 import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
 
-
 const defaultTheme = { success: 'red bold' } as const
 const theme = await terminalTheme(defaultTheme)
 
