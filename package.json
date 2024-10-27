@@ -62,7 +62,7 @@
     "map-obj": "^5.0.2"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^3.0.16",
+    "@ehmicky/dev-tasks": "^3.0.17",
     "ansi-styles": "^6.2.1",
     "test-each": "^7.0.0"
   },
