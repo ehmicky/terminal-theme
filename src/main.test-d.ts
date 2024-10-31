@@ -1,10 +1,10 @@
 import { stderr } from 'node:process'
 
-import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
+import { expectAssignable, expectNotAssignable, expectType } from 'tsd'
 
 import terminalTheme, {
-  type Options,
   type DefaultTheme,
+  type Options,
   type Theme,
 } from 'terminal-theme'
 

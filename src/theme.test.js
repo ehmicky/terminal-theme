@@ -1,13 +1,13 @@
-import { stat, chmod } from 'node:fs/promises'
-import { platform, cwd as getCwd, chdir } from 'node:process'
+import { chmod, stat } from 'node:fs/promises'
+import { chdir, cwd as getCwd, platform } from 'node:process'
 
 import test from 'ava'
 
 import {
-  getCategory,
-  getCategories,
-  hasStyle,
   FIXTURES_DIR,
+  getCategories,
+  getCategory,
+  hasStyle,
 } from './helpers/main.test.js'
 
 test('User theme has priority over default theme', async (t) => {
