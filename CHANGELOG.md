@@ -1,3 +1,10 @@
+# 6.1.0
+
+## Dependencies
+
+- Upgrade underlying dependency
+  [`chalk-string`](https://github.com/ehmicky/chalk-string)
+
 # 6.0.1
 
 ## Documentation
