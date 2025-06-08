@@ -4,9 +4,9 @@ import isPlainObj from 'is-plain-obj'
 export const getOpts = (defaultTheme, opts = {}) => {
   validateDefaultTheme(defaultTheme)
   validateBasicOpts(opts)
-  const { cwd = '.', ...colorsOptionOpts } = opts
+  const { cwd = '.', ...chalkStringOpts } = opts
   validateCwd(cwd)
-  return { cwd, colorsOptionOpts }
+  return { cwd, chalkStringOpts }
 }
 
 const validateDefaultTheme = (defaultTheme) => {

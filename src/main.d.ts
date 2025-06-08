@@ -66,7 +66,7 @@ export interface DefaultTheme {
  */
 export type Theme<ChosenDefaultTheme extends DefaultTheme> = {
   readonly [category in keyof ChosenDefaultTheme]: (
-    input: Parameters<ReturnType<typeof chalkString>>[1],
+    input: Parameters<ReturnType<typeof chalkString>>[0],
   ) => ReturnType<ReturnType<typeof chalkString>>
 }
 
